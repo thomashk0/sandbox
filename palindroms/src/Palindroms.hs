@@ -75,7 +75,6 @@ strictAssociations l@(x:_) s = do
 insertions :: Int -> Int -> [[(Int, Int)]]
 insertions p n = do
     ps <- sumDecomp p
-    -- TODO: No need to recompute, combinaisons could be precomputed
     xs <- combinaisons (length ps) $ S.fromList [0 .. n]
     map (sortOn snd) $ strictAssociations ps xs -- Sort really needed there ?
 

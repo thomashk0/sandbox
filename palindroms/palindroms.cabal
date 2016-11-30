@@ -1,0 +1,43 @@
+name:                palindroms
+version:             0.1.0.0
+synopsis:            Simple project template from stack
+description:         Please see README.md
+homepage:            https://github.com/thomashk0/palindroms#readme
+license:             BSD3
+author:              Thomas Hiscock
+maintainer:          thomas.hiscock@wanadoo.fr
+copyright:           2016 Thomas Hiscock
+category:            Algorithm
+build-type:          Simple
+cabal-version:       >=1.10
+extra-source-files:  README.md
+
+library
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+  exposed-modules:     Palindroms
+  build-depends:       base >= 4.7 && < 5
+                     , containers
+
+test-suite test-palindroms
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Main.hs
+  other-modules:       TestPalindroms
+  build-depends:       base
+                     , palindroms
+                     , tasty
+                     , tasty-quickcheck
+  ghc-options:         -Wall -O2 -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+benchmark bench-palindroms
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:   bench
+  main-is:          Main.hs
+  ghc-options:      -Wall -O2 -threaded -rtsopts -with-rtsopts=-N
+  build-depends:    base
+                  , palindroms
+                  , criterion
+  default-language:    Haskell2010

@@ -3,5 +3,5 @@
 Run with :
 
 ```bash
-$ stack runghc --package tasty --package tasty-quickcheck TestPalindroms.hs
+$ stack build --test --bench
 ```
